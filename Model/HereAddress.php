@@ -22,6 +22,10 @@ final class HereAddress extends Address
     /**
      * @var string|null
      */
+    public $resultType;
+    /**
+     * @var string|null
+     */
     private $locationId;
 
     /**
