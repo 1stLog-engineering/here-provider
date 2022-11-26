@@ -259,7 +259,7 @@ final class Here extends AbstractHttpProvider implements Provider
             $address = $address->withLocationType($location['LocationType']);
             $address = $address->withAdditionalData(array_merge($additionalData, $extraAdditionalData));
             $address = $address->withShape($location['Shape'] ?? null);
-            $address->resultType=$loc['MatchLevel'] ?? null;
+            $address = $address->withResultType($loc['MatchLevel'] ?? null);
             $results[] = $address;
 
             if (count($results) >= $limit) {

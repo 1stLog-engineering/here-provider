@@ -22,10 +22,6 @@ final class HereAddress extends Address
     /**
      * @var string|null
      */
-    public $resultType;
-    /**
-     * @var string|null
-     */
     private $locationId;
 
     /**
@@ -47,6 +43,11 @@ final class HereAddress extends Address
      * @var array|null
      */
     private $shape;
+
+    /**
+     * @var string|null
+     */
+    public $resultType;
 
     /**
      * @return string|null
@@ -223,5 +224,26 @@ final class HereAddress extends Address
     public function hasShapeValue(string $name): bool
     {
         return array_key_exists($name, $this->shape);
+    }
+
+    /**
+     * @param string|null $resultType
+     *
+     * @return HereAddress
+     */
+    public function withResultType(string $resultType = null): self
+    {
+        $new = clone $this;
+        $new->resultType = $resultType;
+
+        return $new;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getResultType()
+    {
+        return $this->resultType;
     }
 }
